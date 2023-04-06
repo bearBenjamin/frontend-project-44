@@ -10,3 +10,10 @@
 *The essence of the game is as follows: the user is shown a random number. And he needs to answer yes if the number is even, or no if it is odd:*
 
 [![asciicast](https://asciinema.org/a/574859.svg)](https://asciinema.org/a/574859)
+
+* **Calculator**
+
+*The essence of the game is as follows: the user is shown a random mathematical expression, for example 35 + 16, which must be calculated and the correct answer written down.*
+
+[![asciicast](https://asciinema.org/a/575128.svg)](https://asciinema.org/a/575128)
+
