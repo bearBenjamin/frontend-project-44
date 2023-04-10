@@ -1,56 +1,58 @@
-import { question } from 'readline-sync';
+import {
+  showGreetings, getUserName, showGreetingsUser, getRandomNum,
+  showRoundQuestion, showAnswerUser, showCorrectAnswer, showCongratulations,
+} from './index.js';
 
 // eslint-disable-next-line consistent-return
 const calculator = () => {
-  console.log('Welcome to the Brain Games!');
-  const userName = question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
+  showGreetings();
+  const userName = getUserName();
+  console.log(`${showGreetingsUser()} ${userName}!`);
   console.log('What is the result of the expression?');
-  let counter = 1;
   const result = 'exit';
-  while (counter <= 3) {
-    const min = Math.ceil(1);
-    const max = Math.floor(100);
-    const numberRandom1 = Math.floor(Math.random() * (max - min + 1)) + min;
-    const numberRandom2 = Math.floor(Math.random() * (max - min + 1)) + min;
+  for (let i = 0; i < 3; i += 1) {
+    const numberRandom1 = getRandomNum();
+    const numberRandom2 = getRandomNum();
     const arrayRandOperation = ['+', '-', '*'];
     const randOperation = arrayRandOperation[Math.floor(Math.random() * arrayRandOperation.length)];
-    if (randOperation === '+') {
-      console.log(`${'Question: '}${numberRandom1} + ${numberRandom2}`);
-      const resultUser = question('Your answer: ');
+    const addition = randOperation === '+';
+    const substraction = randOperation === '-';
+    const multiplication = randOperation === '*';
+    if (addition) {
+      console.log(`${showRoundQuestion()}${numberRandom1} + ${numberRandom2}`);
+      const resultUser = showAnswerUser();
       const sum = numberRandom1 + numberRandom2;
       if (Number(resultUser) === sum) {
-        console.log('Correct!');
+        console.log(showCorrectAnswer());
       } else {
         console.log(`'${resultUser}' ${'is wrong answer ;(. Correct answer was '}'${sum}'${'\nLet\'s try again, '}${userName}`);
         return result;
       }
     }
-    if (randOperation === '-') {
-      console.log(`${'Question: '}${numberRandom1} - ${numberRandom2}`);
-      const resultUser = question('Your asnwer: ');
+    if (substraction) {
+      console.log(`${showRoundQuestion()}${numberRandom1} - ${numberRandom2}`);
+      const resultUser = showAnswerUser();
       const sub = numberRandom1 - numberRandom2;
       if (Number(resultUser) === sub) {
-        console.log('Correct!');
+        console.log(showCorrectAnswer());
       } else {
         console.log(`'${resultUser}' ${'is wrong answer ;(. Correct answer was '}'${sub}'${'\nLet\'s try again, '}${userName}`);
         return result;
       }
     }
-    if (randOperation === '*') {
-      console.log(`${'Question: '}${numberRandom1} * ${numberRandom2}`);
-      const resultUser = question('Your asnwer: ');
+    if (multiplication) {
+      console.log(`${showRoundQuestion()}${numberRandom1} * ${numberRandom2}`);
+      const resultUser = showAnswerUser();
       const multip = numberRandom1 * numberRandom2;
       if (Number(resultUser) === multip) {
-        console.log('Correct!');
+        console.log(showCorrectAnswer());
       } else {
         console.log(`'${resultUser}' ${'is wrong answer ;(. Correct answer was '}'${multip}'${'\nLet\'s try again, '}${userName}`);
         return result;
       }
     }
-    counter += 1;
   }
-  console.log(`${'Congratulations'}, ${userName}!`);
+  console.log(`${showCongratulations()}, ${userName}!`);
 };
 
 export default calculator;

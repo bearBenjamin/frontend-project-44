@@ -1,31 +1,35 @@
-import { question } from 'readline-sync';
+import {
+  showGreetings, getUserName, showGreetingsUser, showRoundQuestion,
+  getRandomNum, showAnswerUser, showCorrectAnswer, showCongratulations,
+} from './index.js';
 
 // eslint-disable-next-line consistent-return
 const arbitaryNumber = () => {
-  console.log('Welcome to the Brain Games!');
-  const userName = question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
+  showGreetings();
+  const nameUser = getUserName();
+  console.log(`${showGreetingsUser()}${nameUser}`);
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  let counter = 1;
-  const result = 'exit';
-  while (counter <= 3) {
-    const min = Math.ceil(1);
-    const max = Math.floor(1000);
-    const numberRandom = Math.floor(Math.random() * (max - min + 1)) + min;
-    console.log(`${'Question: '}${numberRandom}`);
-    const yourAnswer = question('Your answer: ');
-    if ((numberRandom % 2 === 0 && yourAnswer === 'yes') || (numberRandom % 2 !== 0 && yourAnswer === 'no')) {
-      console.log('Correct!');
-    } else if (numberRandom % 2 === 0 && yourAnswer !== 'yes') {
-      console.log(`${'\'yes\' is wrong answer ;(. Correct answer was \'no\'.\nLet\'s try again, '}${userName}`);
-      return result;
-    } else if (numberRandom % 2 !== 0 && yourAnswer !== 'no') {
-      console.log(`${'\'no\' is wrong answer ;(. Correct answer was \'yes\'.\nLet\'s try again, '}${userName}`);
-      return result;
+  const exit = 'exit';
+  for (let i = 0; i < 3; i += 1) {
+    const numRandom = getRandomNum();
+    console.log(`${showRoundQuestion()}${numRandom}`);
+    const answerUser = showAnswerUser();
+    const correct = (numRandom % 2 === 0 && answerUser === 'yes') || (numRandom % 2 !== 0 && answerUser === 'no');
+    const noEvenNum = numRandom % 2 === 0 && answerUser !== 'yes';
+    const noOddNum = numRandom % 2 !== 0 && answerUser !== 'no';
+    if (correct) {
+      console.log(showCorrectAnswer());
     }
-    counter += 1;
+    if (noEvenNum) {
+      console.log(`${'\'yes\' is wrong answer ;(. Correct answer was \'no\'.\nLet\'s try again, '}${nameUser}`);
+      return exit;
+    }
+    if (noOddNum) {
+      console.log(`${'\'no\' is wrong answer ;(. Correct answer was \'yes\'.\nLet\'s try again, '}${nameUser}`);
+      return exit;
+    }
   }
-  console.log(`${'Congratulations'}, ${userName}!`);
+  console.log(`${showCongratulations()}, ${nameUser}!`);
 };
 
 export default arbitaryNumber;
