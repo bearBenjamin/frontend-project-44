@@ -1,58 +1,60 @@
 import {
-  showGreetings, getUserName, showGreetingsUser, getRandomNum,
-  showRoundQuestion, showAnswerUser, showCorrectAnswer, showCongratulations,
+  showGreetings, showAnswerUser,
+  getUserName, getRandomNum,
+  greetingsUser, roundQuestion, correctAnswer, exit,
+  wrongAnswer, wrongAnswer1, congratulationsGame,
 } from './index.js';
 
 // eslint-disable-next-line consistent-return
 const calculator = () => {
   showGreetings();
   const userName = getUserName();
-  console.log(`${showGreetingsUser()} ${userName}!`);
+  console.log(`${greetingsUser} ${userName}!`);
   console.log('What is the result of the expression?');
-  const result = 'exit';
   for (let i = 0; i < 3; i += 1) {
-    const numberRandom1 = getRandomNum();
-    const numberRandom2 = getRandomNum();
+    const numRandom = getRandomNum();
+    const numRandom1 = getRandomNum();
     const arrayRandOperation = ['+', '-', '*'];
     const randOperation = arrayRandOperation[Math.floor(Math.random() * arrayRandOperation.length)];
     const addition = randOperation === '+';
     const substraction = randOperation === '-';
     const multiplication = randOperation === '*';
     if (addition) {
-      console.log(`${showRoundQuestion()}${numberRandom1} + ${numberRandom2}`);
-      const resultUser = showAnswerUser();
-      const sum = numberRandom1 + numberRandom2;
-      if (Number(resultUser) === sum) {
-        console.log(showCorrectAnswer());
+      console.log(`${roundQuestion}${numRandom} + ${numRandom1}`);
+      const resultUser = +showAnswerUser();
+      const sum = numRandom + numRandom1;
+      if (resultUser === sum) {
+        console.log(correctAnswer);
       } else {
-        console.log(`'${resultUser}' ${'is wrong answer ;(. Correct answer was '}'${sum}'${'\nLet\'s try again, '}${userName}`);
-        return result;
+        console.log(`'${resultUser}' ${wrongAnswer}'${sum}'\n${wrongAnswer1}${userName}`);
+        return exit;
       }
     }
     if (substraction) {
-      console.log(`${showRoundQuestion()}${numberRandom1} - ${numberRandom2}`);
-      const resultUser = showAnswerUser();
-      const sub = numberRandom1 - numberRandom2;
-      if (Number(resultUser) === sub) {
-        console.log(showCorrectAnswer());
+      console.log(`${roundQuestion}${numRandom} - ${numRandom1}`);
+      const resultUser = +showAnswerUser();
+      const sub = numRandom - numRandom1;
+      if (resultUser === sub) {
+        console.log(correctAnswer);
       } else {
-        console.log(`'${resultUser}' ${'is wrong answer ;(. Correct answer was '}'${sub}'${'\nLet\'s try again, '}${userName}`);
-        return result;
+        console.log(`'${resultUser}' ${wrongAnswer}'${sub}'\n${wrongAnswer1}${userName}`);
+        return exit;
       }
     }
     if (multiplication) {
-      console.log(`${showRoundQuestion()}${numberRandom1} * ${numberRandom2}`);
-      const resultUser = showAnswerUser();
-      const multip = numberRandom1 * numberRandom2;
-      if (Number(resultUser) === multip) {
-        console.log(showCorrectAnswer());
+      console.log(`${roundQuestion}${numRandom} * ${numRandom1}`);
+      const resultUser = +showAnswerUser();
+      const multip = numRandom * numRandom1;
+      if (resultUser === multip) {
+        console.log(correctAnswer);
       } else {
-        console.log(`'${resultUser}' ${'is wrong answer ;(. Correct answer was '}'${multip}'${'\nLet\'s try again, '}${userName}`);
-        return result;
+        console.log(`'${resultUser}' ${wrongAnswer}'${multip}'\n${wrongAnswer1}${userName}`);
+        return exit;
       }
     }
   }
-  console.log(`${showCongratulations()}, ${userName}!`);
+  console.log(`${congratulationsGame}, ${userName}!`);
+  return exit;
 };
 
 export default calculator;

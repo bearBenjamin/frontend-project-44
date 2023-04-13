@@ -1,17 +1,21 @@
 import { question } from 'readline-sync';
 
+// function show;
+
 export const showGreetings = () => {
   console.log('Welcome to the Brain Games!');
 };
 
+export const showAnswerUser = () => {
+  const answerUser = question('Your answer: ');
+  return answerUser;
+};
+
+// function get;
+
 export const getUserName = () => {
   const userName = question('May I have your name? ');
   return userName;
-};
-
-export const showGreetingsUser = () => {
-  const greetingsUser = 'Hello ,';
-  return greetingsUser;
 };
 
 export const getRandomNum = () => {
@@ -23,22 +27,18 @@ export const getRandomNum = () => {
   return numRandom;
 };
 
-export const showRoundQuestion = () => {
-  const roundQuestion = 'Question: ';
-  return roundQuestion;
-};
+// list const;
 
-export const showAnswerUser = () => {
-  const answerUser = question('Your answer: ');
-  return answerUser;
-};
+export const greetingsUser = 'Hello ,';
 
-export const showCorrectAnswer = () => {
-  const correctAnswer = 'Correct';
-  return correctAnswer;
-};
+export const roundQuestion = 'Question: ';
 
-export const showCongratulations = () => {
-  const congratulationsGame = 'Congratulations';
-  return congratulationsGame;
-};
+export const correctAnswer = 'Correct!';
+
+export const wrongAnswer = 'is wrong answer ;(. Correct answer was ';
+
+export const wrongAnswer1 = 'Let\'s try again, ';
+
+export const congratulationsGame = 'Congratulations';
+
+export const exit = 'exit';
