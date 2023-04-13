@@ -17,3 +17,8 @@
 
 [![asciicast](https://asciinema.org/a/575128.svg)](https://asciinema.org/a/575128)
 
+* **Greates Common Divisor (GCD)**
+
+*The essence of the game is as follows: two random numbers are shown, for example, 25 50. It is necessary to calculate and enter the greatest common divisor of these numbers.*
+
+[![asciicast](https://asciinema.org/a/577379.svg)](https://asciinema.org/a/577379)
