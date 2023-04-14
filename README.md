@@ -22,3 +22,10 @@
 *The essence of the game is as follows: two random numbers are shown, for example, 25 50. It is necessary to calculate and enter the greatest common divisor of these numbers.*
 
 [![asciicast](https://asciinema.org/a/577379.svg)](https://asciinema.org/a/577379)
+
+* **Arithmetic progression**
+
+*A series of numbers is shown, forming an arithmetic progression, replacing any of the numbers with two dots. This number must be determined.*
+
+[![asciicast](https://asciinema.org/a/577559.svg)](https://asciinema.org/a/577559)
+
