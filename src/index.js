@@ -27,6 +27,11 @@ export const getRandomNum = () => {
   return numRandom;
 };
 
+export const getRandomOperation = (arrayRandOperation = ['+', '-', '*']) => {
+  const randOperation = arrayRandOperation[Math.floor(Math.random() * arrayRandOperation.length)];
+  return randOperation;
+};
+
 // list const;
 
 export const greetingsUser = 'Hello ,';
