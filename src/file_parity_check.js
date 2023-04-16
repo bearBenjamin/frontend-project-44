@@ -1,6 +1,6 @@
 import {
   showGreetings, showAnswerUser,
-  getUserName, getRandomNum,
+  getNameUser, getRandomNum,
   greetingsUser, roundQuestion, correctAnswer, exit,
   wrongAnswer, wrongAnswer1, congratulationsGame,
 } from './index.js';
@@ -8,7 +8,7 @@ import {
 // eslint-disable-next-line consistent-return
 const arbitaryNumber = () => {
   showGreetings();
-  const nameUser = getUserName();
+  const nameUser = getNameUser();
   console.log(`${greetingsUser}${nameUser}`);
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
   for (let i = 0; i < 3; i += 1) {
