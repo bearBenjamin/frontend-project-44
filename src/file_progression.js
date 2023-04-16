@@ -27,7 +27,7 @@ const progression = () => {
     if (answerUser === answerCorrect) {
       console.log(correctAnswer);
     } else {
-      console.log(`${answerUser}${' '}${wrongAnswer}${' '}${answerCorrect}\n${wrongAnswer1}`);
+      console.log(`${answerUser}${' '}${wrongAnswer}${' '}${answerCorrect}\n${wrongAnswer1}${nameUser}`);
       return exit;
     }
   }
