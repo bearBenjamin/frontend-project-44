@@ -13,7 +13,7 @@ export const showAnswerUser = () => {
 
 // function get;
 
-export const getUserName = () => {
+export const getNameUser = () => {
   const userName = question('May I have your name? ');
   return userName;
 };
