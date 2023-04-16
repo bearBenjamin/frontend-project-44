@@ -22,7 +22,7 @@ const gcd = () => {
       if (correct) {
         console.log(correctAnswer);
       } else {
-        console.log(`${wrongAnswer}${gcdResult}\n${wrongAnswer1}`);
+        console.log(`${wrongAnswer}${gcdResult}\n${wrongAnswer1}${nameUser}`);
         return exit;
       }
     }
@@ -38,7 +38,7 @@ const gcd = () => {
     if (correct) {
       console.log(correctAnswer);
     } else {
-      console.log(`${wrongAnswer}${gcdResult}\n${wrongAnswer1}`);
+      console.log(`${wrongAnswer}${gcdResult}\n${wrongAnswer1}${nameUser}`);
       return exit;
     }
   }
