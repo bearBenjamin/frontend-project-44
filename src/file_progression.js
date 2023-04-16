@@ -1,27 +1,27 @@
 import {
   showGreetings, showAnswerUser,
-  getUserName, getRandomNum,
+  getNameUser, getRandomNum,
   greetingsUser, roundQuestion, correctAnswer, exit,
   wrongAnswer, wrongAnswer1, congratulationsGame,
 } from './index.js';
 
 const progression = () => {
   showGreetings();
-  const nameUser = getUserName();
+  const nameUser = getNameUser();
   console.log(`${greetingsUser}${nameUser}!`);
   console.log('Whan number is missing in the progression?');
   for (let i = 0; i < 3; i += 1) {
-    const strArrayProgression = [];
+    const arrayProgression = [];
     const numRandom = getRandomNum();
     let itemArrayProgression = numRandom;
     for (let j = 0; j < 10; j += 1) {
       itemArrayProgression += 2;
-      strArrayProgression.push(itemArrayProgression);
+      arrayProgression.push(itemArrayProgression);
     }
-    const ranTwoPoint = Math.floor(Math.random() * 10);
-    const answerCorrect = strArrayProgression[ranTwoPoint];
-    strArrayProgression[ranTwoPoint] = '..';
-    const strProgression = strArrayProgression.join('  ');
+    const ranTwoPoint = Math.floor(Math.random() * arrayProgression.length);
+    const answerCorrect = arrayProgression[ranTwoPoint];
+    arrayProgression[ranTwoPoint] = '..';
+    const strProgression = arrayProgression.join('  ');
     console.log(`${roundQuestion}${strProgression}`);
     const answerUser = +showAnswerUser();
     if (answerUser === answerCorrect) {
