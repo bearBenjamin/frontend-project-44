@@ -1,11 +1,10 @@
 import {
   showGreetings, showAnswerUser,
-  getNameUser, getRandomNum,
+  getNameUser, getRandomNum, getRandomOperation,
   greetingsUser, roundQuestion, correctAnswer, exit,
   wrongAnswer, wrongAnswer1, congratulationsGame,
 } from './index.js';
 
-// eslint-disable-next-line consistent-return
 const calculator = () => {
   showGreetings();
   const nameUser = getNameUser();
@@ -14,8 +13,7 @@ const calculator = () => {
   for (let i = 0; i < 3; i += 1) {
     const numA = getRandomNum();
     const numB = getRandomNum();
-    const arrayRandOperation = ['+', '-', '*'];
-    const randOperation = arrayRandOperation[Math.floor(Math.random() * arrayRandOperation.length)];
+    const randOperation = getRandomOperation();
     const addition = randOperation === '+';
     const substraction = randOperation === '-';
     const multiplication = randOperation === '*';
