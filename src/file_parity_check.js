@@ -5,7 +5,6 @@ import {
   wrongAnswer, wrongAnswer1, congratulationsGame,
 } from './index.js';
 
-// eslint-disable-next-line consistent-return
 const arbitaryNumber = () => {
   showGreetings();
   const nameUser = getNameUser();
