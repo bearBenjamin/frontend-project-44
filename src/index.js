@@ -69,3 +69,30 @@ export const wrongAnswer1 = 'Let\'s try again, ';
 export const correctAnswer = 'Correct!';
 
 export const congratulationsGame = 'Congratulations';
+
+export const getAnswerCalc = (numA, numB, randOperation) => {
+  if (randOperation === '+') {
+    console.log(`${'Question: '}${numA} + ${numB}`);
+  }
+  if (randOperation === '-') {
+    console.log(`${'Question: '}${numA} - ${numB}`);
+  }
+  if (randOperation === '*') {
+    console.log(`${'Question: '}${numA} * ${numB}`);
+  }
+};
+
+export const getOperationAddition = (numA, numB, randOperation) => {
+  const addition = randOperation === '+' ? numA + numB : '';
+  return addition;
+};
+
+export const getOperationSubstraction = (numA, numB, randOperation) => {
+  const substraction = randOperation === '-' ? numA - numB : '';
+  return substraction;
+};
+
+export const getOperationMultiplication = (numA, numB, randOperation) => {
+  const multiplication = randOperation === '*' ? numA * numB : '';
+  return multiplication;
+};
