@@ -1,8 +1,9 @@
 import {
-  showGreetings, showAnswerUser, showGreetingsUser, showRoundQuestion,
-  getNameUser, getRandomNum, getRandomOperation,
+  showGreetings, showAnswerUser, showGreetingsUser,
+  getNameUser, getRandomNum, getRandomOperation, getAnswerCalc,
   correctAnswer, exit,
   wrongAnswer, wrongAnswer1, congratulationsGame,
+  getOperationAddition, getOperationSubstraction, getOperationMultiplication,
 } from './index.js';
 
 const calculator = () => {
@@ -15,6 +16,20 @@ const calculator = () => {
     const numA = getRandomNum();
     const numB = getRandomNum();
     const randOperation = getRandomOperation();
+    getAnswerCalc(numA, numB, randOperation);
+    const answerUser = +showAnswerUser();
+    const sum = getOperationAddition(numA, numB, randOperation);
+    const sub = getOperationSubstraction(numA, numB, randOperation);
+    const multip = getOperationMultiplication(numA, numB, randOperation);
+    if ((answerUser === sum) || (answerUser === sub) || (answerUser === multip)) {
+      console.log(correctAnswer);
+    } else {
+      console.log(`${answerUser} ${wrongAnswer}${sum || sub || multip}\n${wrongAnswer1}${nameUser}!`);
+      return exit;
+    }
+  }
+
+  /* const randOperation = getRandomOperation();
     const addition = randOperation === '+';
     if (addition) {
       console.log(`${'Question: '}${numA} + ${numB}`);
@@ -50,8 +65,7 @@ const calculator = () => {
         console.log(`${answerUser} ${wrongAnswer}${result}\n${wrongAnswer1}${nameUser}!`);
         return exit;
       }
-    }
-  }
+    } */
   console.log(`${congratulationsGame}, ${nameUser}!`);
   return exit;
 };
