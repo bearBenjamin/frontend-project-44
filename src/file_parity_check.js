@@ -19,7 +19,7 @@ const arbitaryNumber = () => {
     if (expectedResponse === answerUser) {
       console.log(correctAnswer);
     } else {
-      console.log(`${answerUser} ${wrongAnswer}${expectedResponse}\n${wrongAnswer1}${nameUser}`);
+      console.log(`${answerUser} ${wrongAnswer}${expectedResponse}\n${wrongAnswer1}${nameUser}!`);
       return exit;
     }
   }

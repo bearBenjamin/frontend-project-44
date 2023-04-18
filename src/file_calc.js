@@ -23,7 +23,7 @@ const calculator = () => {
       if (answerUser === result) {
         console.log(correctAnswer);
       } else {
-        console.log(`${answerUser} ${wrongAnswer}${result}\n${wrongAnswer1}${nameUser}`);
+        console.log(`${answerUser} ${wrongAnswer}${result}\n${wrongAnswer1}${nameUser}!`);
         return exit;
       }
     }
@@ -33,7 +33,7 @@ const calculator = () => {
       if (answerUser === result) {
         console.log(correctAnswer);
       } else {
-        console.log(`${answerUser} ${wrongAnswer}${result}\n${wrongAnswer1}${nameUser}`);
+        console.log(`${answerUser} ${wrongAnswer}${result}\n${wrongAnswer1}${nameUser}!`);
         return exit;
       }
     }
@@ -43,7 +43,7 @@ const calculator = () => {
       if (answerUser === result) {
         console.log(correctAnswer);
       } else {
-        console.log(`${answerUser} ${wrongAnswer}${result}\n${wrongAnswer1}${nameUser}`);
+        console.log(`${answerUser} ${wrongAnswer}${result}\n${wrongAnswer1}${nameUser}!`);
         return exit;
       }
     }
