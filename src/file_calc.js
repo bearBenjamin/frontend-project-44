@@ -1,52 +1,49 @@
 import {
-  showGreetings, showAnswerUser,
+  showGreetings, showAnswerUser, showGreetingsUser, showRoundQuestion,
   getNameUser, getRandomNum, getRandomOperation,
-  greetingsUser, roundQuestion, correctAnswer, exit,
+  correctAnswer, exit,
   wrongAnswer, wrongAnswer1, congratulationsGame,
 } from './index.js';
 
 const calculator = () => {
+  console.log('brain-calc\n');
   showGreetings();
   const nameUser = getNameUser();
-  console.log(`${greetingsUser} ${nameUser}!`);
+  showGreetingsUser(nameUser);
   console.log('What is the result of the expression?');
   for (let i = 0; i < 3; i += 1) {
     const numA = getRandomNum();
     const numB = getRandomNum();
     const randOperation = getRandomOperation();
+    showRoundQuestion(numA, randOperation, numB);
+    const answerUser = +showAnswerUser();
     const addition = randOperation === '+';
-    const substraction = randOperation === '-';
-    const multiplication = randOperation === '*';
     if (addition) {
-      console.log(`${roundQuestion}${numA} + ${numB}`);
-      const resultUser = +showAnswerUser();
-      const sum = numA + numB;
-      if (resultUser === sum) {
+      const result = numA + numB;
+      if (answerUser === result) {
         console.log(correctAnswer);
       } else {
-        console.log(`'${resultUser}' ${wrongAnswer}'${sum}'\n${wrongAnswer1}${nameUser}`);
+        console.log(`${answerUser} ${wrongAnswer}${result}\n${wrongAnswer1}${nameUser}`);
         return exit;
       }
     }
+    const substraction = randOperation === '-';
     if (substraction) {
-      console.log(`${roundQuestion}${numA} - ${numB}`);
-      const resultUser = +showAnswerUser();
-      const sub = numA - numB;
-      if (resultUser === sub) {
+      const result = numA - numB;
+      if (answerUser === result) {
         console.log(correctAnswer);
       } else {
-        console.log(`'${resultUser}' ${wrongAnswer}'${sub}'\n${wrongAnswer1}${nameUser}`);
+        console.log(`${answerUser} ${wrongAnswer}${result}\n${wrongAnswer1}${nameUser}`);
         return exit;
       }
     }
+    const multiplication = randOperation === '*';
     if (multiplication) {
-      console.log(`${roundQuestion}${numA} * ${numB}`);
-      const resultUser = +showAnswerUser();
-      const multip = numA * numB;
-      if (resultUser === multip) {
+      const result = numA * numB;
+      if (answerUser === result) {
         console.log(correctAnswer);
       } else {
-        console.log(`'${resultUser}' ${wrongAnswer}'${multip}'\n${wrongAnswer1}${nameUser}`);
+        console.log(`${answerUser} ${wrongAnswer}${result}\n${wrongAnswer1}${nameUser}`);
         return exit;
       }
     }
