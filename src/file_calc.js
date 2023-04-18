@@ -15,10 +15,10 @@ const calculator = () => {
     const numA = getRandomNum();
     const numB = getRandomNum();
     const randOperation = getRandomOperation();
-    showRoundQuestion(numA, randOperation, numB);
-    const answerUser = +showAnswerUser();
     const addition = randOperation === '+';
     if (addition) {
+      console.log(`${'Question: '}${numA} + ${numB}`);
+      const answerUser = +showAnswerUser();
       const result = numA + numB;
       if (answerUser === result) {
         console.log(correctAnswer);
@@ -29,6 +29,8 @@ const calculator = () => {
     }
     const substraction = randOperation === '-';
     if (substraction) {
+      console.log(`${'Question: '}${numA} - ${numB}`);
+      const answerUser = +showAnswerUser();
       const result = numA - numB;
       if (answerUser === result) {
         console.log(correctAnswer);
@@ -39,6 +41,8 @@ const calculator = () => {
     }
     const multiplication = randOperation === '*';
     if (multiplication) {
+      console.log(`${'Question: '}${numA} * ${numB}`);
+      const answerUser = +showAnswerUser();
       const result = numA * numB;
       if (answerUser === result) {
         console.log(correctAnswer);
