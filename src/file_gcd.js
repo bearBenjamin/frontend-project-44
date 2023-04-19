@@ -1,6 +1,6 @@
 import {
   showGreetings, showAnswerUser, showGreetingsUser, showRoundQuestion,
-  getNameUser, getRandomNum,
+  getNameUser, getRandomNum, getCalculationGcd,
   correctAnswer, exit,
   wrongAnswer, wrongAnswer1, congratulationsGame,
 } from './index.js';
@@ -11,34 +11,21 @@ const gcd = () => {
   const nameUser = getNameUser();
   showGreetingsUser(nameUser);
   console.log('Find the greatest common divisor of given numbers.');
-  let gcdResult;
   for (let i = 0; i < 3; i += 1) {
-    let numA = getRandomNum();
-    let numB = getRandomNum();
+    const numA = getRandomNum();
+    const numB = getRandomNum();
     const operationRound = ' ';
     showRoundQuestion(numA, operationRound, numB);
-    // console.log(`${roundQuestion}${numA}${}${numB}`);
     const answerUser = +showAnswerUser();
-    if (numA === numB) {
-      gcdResult = numA;
-    } else {
-      do {
-        if (numA > numB) {
-          numA -= numB;
-        } else {
-          numB -= numA;
-        }
-      } while (numA !== numB);
-      gcdResult = numA;
-    }
+    const gcdResult = getCalculationGcd(numA, numB);
     if (gcdResult === answerUser) {
       console.log(correctAnswer);
     } else {
       console.log(`${wrongAnswer}${gcdResult}\n${wrongAnswer1}${nameUser}`);
       return exit;
     }
-}
-  console.log(`${congratulationsGame}${' '}${nameUser}!`);
+  }
+  console.log(`${congratulationsGame},${' '}${nameUser}!`);
   return exit;
 };
 

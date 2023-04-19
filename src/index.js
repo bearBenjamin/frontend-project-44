@@ -52,24 +52,6 @@ export const getRandomOperation = (arrayRandOperation = ['+', '-', '*']) => {
   return randOperation;
 };
 
-// list const;
-
-// export const greetingsUser = 'Hello ,';
-
-// export const roundQuestion = 'Question: ';
-
-// export const correctAnswer = 'Correct!';
-
-export const exit = 'exit';
-
-export const wrongAnswer = 'is wrong answer ;(. Correct answer was ';
-
-export const wrongAnswer1 = 'Let\'s try again, ';
-
-export const correctAnswer = 'Correct!';
-
-export const congratulationsGame = 'Congratulations';
-
 export const getAnswerCalc = (numA, numB, randOperation) => {
   if (randOperation === '+') {
     console.log(`${'Question: '}${numA} + ${numB}`);
@@ -96,3 +78,49 @@ export const getOperationMultiplication = (numA, numB, randOperation) => {
   const multiplication = randOperation === '*' ? numA * numB : '';
   return multiplication;
 };
+
+export const getCalculationGcd = (numA, numB) => {
+  let numOne = numA;
+  let numTwo = numB;
+  let gcdResult;
+  if (numOne === numTwo) {
+    gcdResult = numOne;
+  } else {
+    do {
+      if (numOne > numTwo) {
+        numOne -= numTwo;
+      } else {
+        numTwo -= numOne;
+      }
+    } while (numOne !== numTwo);
+    gcdResult = numOne;
+  }
+  return gcdResult;
+};
+
+export const getArrayProgressionRound = (numRandom) => {
+  const arrayProgression = [];
+  let itemArrayProgression = numRandom;
+  for (let j = 0; j < 10; j += 1) {
+    itemArrayProgression += 2;
+    arrayProgression.push(itemArrayProgression);
+  }
+  return arrayProgression;
+};
+
+export const getRandomItemArray = (arrayProgression) => {
+  const itemTwoPoint = Math.floor(Math.random() * arrayProgression.length);
+  return itemTwoPoint;
+};
+
+// list const
+
+export const exit = 'exit';
+
+export const wrongAnswer = 'is wrong answer ;(. Correct answer was ';
+
+export const wrongAnswer1 = 'Let\'s try again, ';
+
+export const correctAnswer = 'Correct!';
+
+export const congratulationsGame = 'Congratulations';

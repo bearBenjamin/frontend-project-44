@@ -1,28 +1,30 @@
 import {
-  showGreetings, showAnswerUser,
-  getNameUser, getRandomNum,
-  greetingsUser, roundQuestion, correctAnswer, exit,
-  wrongAnswer, wrongAnswer1, congratulationsGame,
+  showGreetings, showAnswerUser, showGreetingsUser, showRoundQuestion,
+  getNameUser, getRandomNum, getArrayProgressionRound, getRandomItemArray,
+  exit, correctAnswer, wrongAnswer, wrongAnswer1,
+  congratulationsGame,
 } from './index.js';
 
 const progression = () => {
+  console.log('brain-progression\n');
   showGreetings();
   const nameUser = getNameUser();
-  console.log(`${greetingsUser}${nameUser}!`);
-  console.log('Whan number is missing in the progression?');
+  showGreetingsUser(nameUser);
+  console.log('Whan number is missing in the progrission?');
   for (let i = 0; i < 3; i += 1) {
-    const arrayProgression = [];
     const numRandom = getRandomNum();
-    let itemArrayProgression = numRandom;
+    const arrayProgression = getArrayProgressionRound(numRandom);
+    /* const arrayProgression = [];
     for (let j = 0; j < 10; j += 1) {
+      let itemArrayProgression = numRandom;
       itemArrayProgression += 2;
       arrayProgression.push(itemArrayProgression);
-    }
-    const ranTwoPoint = Math.floor(Math.random() * arrayProgression.length);
-    const answerCorrect = arrayProgression[ranTwoPoint];
-    arrayProgression[ranTwoPoint] = '..';
+    } */
+    const itemTwoPoint = getRandomItemArray(arrayProgression);
+    const answerCorrect = arrayProgression[itemTwoPoint];
+    arrayProgression[itemTwoPoint] = '..';
     const strProgression = arrayProgression.join('  ');
-    console.log(`${roundQuestion}${strProgression}`);
+    showRoundQuestion(strProgression);
     const answerUser = +showAnswerUser();
     if (answerUser === answerCorrect) {
       console.log(correctAnswer);
