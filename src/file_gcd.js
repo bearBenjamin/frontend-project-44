@@ -9,7 +9,7 @@ const gcd = () => {
   console.log('brain-gcd\n');
   showGreetings();
   const nameUser = getNameUser();
-  showGreetingsUser();
+  showGreetingsUser(nameUser);
   console.log('Find the greatest common divisor of given numbers.');
   let gcdResult;
   for (let i = 0; i < 3; i += 1) {
