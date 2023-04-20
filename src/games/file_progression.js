@@ -1,9 +1,9 @@
 import {
   showGreetings, showAnswerUser, showGreetingsUser, showRoundQuestion,
+  showCorrectAnswer, showWrongAnswer, showCongratulationsGame,
   getNameUser, getRandomNum, getArrayProgressionRound, getRandomItemArray,
-  exit, correctAnswer, wrongAnswer, wrongAnswer1,
-  congratulationsGame,
-} from './index.js';
+  totalNumRounds, exit,
+} from '../index.js';
 
 const progression = () => {
   console.log('brain-progression\n');
@@ -11,29 +11,23 @@ const progression = () => {
   const nameUser = getNameUser();
   showGreetingsUser(nameUser);
   console.log('Whan number is missing in the progrission?');
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 1; i <= totalNumRounds; i += 1) {
     const numRandom = getRandomNum();
     const arrayProgression = getArrayProgressionRound(numRandom);
-    /* const arrayProgression = [];
-    for (let j = 0; j < 10; j += 1) {
-      let itemArrayProgression = numRandom;
-      itemArrayProgression += 2;
-      arrayProgression.push(itemArrayProgression);
-    } */
     const itemTwoPoint = getRandomItemArray(arrayProgression);
-    const answerCorrect = arrayProgression[itemTwoPoint];
+    const expectedResponse = arrayProgression[itemTwoPoint];
     arrayProgression[itemTwoPoint] = '..';
     const strProgression = arrayProgression.join('  ');
     showRoundQuestion(strProgression);
     const answerUser = +showAnswerUser();
-    if (answerUser === answerCorrect) {
-      console.log(correctAnswer);
+    if (answerUser === expectedResponse) {
+      showCorrectAnswer();
     } else {
-      console.log(`${answerUser}${' '}${wrongAnswer}${' '}${answerCorrect}\n${wrongAnswer1}${nameUser}`);
+      showWrongAnswer(nameUser, answerUser, expectedResponse);
       return exit;
     }
   }
-  console.log(`${congratulationsGame}, ${nameUser}!`);
+  showCongratulationsGame(nameUser);
   return exit;
 };
 

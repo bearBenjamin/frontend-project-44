@@ -1,10 +1,10 @@
 import {
-  showGreetings, showAnswerUser, showGreetingsUser,
-  getNameUser, getRandomNum, getRandomOperation, getAnswerCalc,
-  correctAnswer, exit,
-  wrongAnswer, wrongAnswer1, congratulationsGame,
+  showGreetings, showGreetingsUser, showRoundQuestionCalc, showAnswerUser,
+  showCorrectAnswer, showWrongAnswerCalc, showCongratulationsGame,
+  getNameUser, getRandomNum, getRandomOperation,
+  totalNumRounds, exit,
   getOperationAddition, getOperationSubstraction, getOperationMultiplication,
-} from './index.js';
+} from '../index.js';
 
 const calculator = () => {
   console.log('brain-calc\n');
@@ -12,23 +12,23 @@ const calculator = () => {
   const nameUser = getNameUser();
   showGreetingsUser(nameUser);
   console.log('What is the result of the expression?');
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 1; i <= totalNumRounds; i += 1) {
     const numA = getRandomNum();
     const numB = getRandomNum();
     const randOperation = getRandomOperation();
-    getAnswerCalc(numA, numB, randOperation);
+    showRoundQuestionCalc(numA, numB, randOperation);
     const answerUser = +showAnswerUser();
     const sum = getOperationAddition(numA, numB, randOperation);
     const sub = getOperationSubstraction(numA, numB, randOperation);
     const multip = getOperationMultiplication(numA, numB, randOperation);
     if ((answerUser === sum) || (answerUser === sub) || (answerUser === multip)) {
-      console.log(correctAnswer);
+      showCorrectAnswer();
     } else {
-      console.log(`${answerUser} ${wrongAnswer}${sum || sub || multip}\n${wrongAnswer1}${nameUser}!`);
+      showWrongAnswerCalc(nameUser, answerUser, sum, sub, multip);
       return exit;
     }
   }
-  console.log(`${congratulationsGame}, ${nameUser}!`);
+  showCongratulationsGame(nameUser);
   return exit;
 };
 

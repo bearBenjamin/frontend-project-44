@@ -1,9 +1,9 @@
 import {
   showGreetings, showAnswerUser, showGreetingsUser, showRoundQuestion,
-  getNameUser, getRandomNum, getAnswer,
-  exit, correctAnswer, wrongAnswer, wrongAnswer1,
-  congratulationsGame,
-} from './index.js';
+  showWrongAnswer, showCorrectAnswer, showCongratulationsGame,
+  getNameUser, getRandomNum, getExpectedAnswer,
+  totalNumRounds, exit,
+} from '../index.js';
 
 const arbitaryNumber = () => {
   console.log('brain-even\n');
@@ -11,19 +11,19 @@ const arbitaryNumber = () => {
   const nameUser = getNameUser();
   showGreetingsUser(nameUser);
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 1; i <= totalNumRounds; i += 1) {
     const numRandom = getRandomNum();
     showRoundQuestion(numRandom);
     const answerUser = showAnswerUser();
-    const expectedResponse = getAnswer(numRandom);
+    const expectedResponse = getExpectedAnswer(numRandom);
     if (expectedResponse === answerUser) {
-      console.log(correctAnswer);
+      showCorrectAnswer();
     } else {
-      console.log(`${answerUser} ${wrongAnswer}${expectedResponse}\n${wrongAnswer1}${nameUser}!`);
+      showWrongAnswer(nameUser, answerUser, expectedResponse);
       return exit;
     }
   }
-  console.log(`${congratulationsGame}, ${nameUser}!`);
+  showCongratulationsGame(nameUser);
   return exit;
 };
 

@@ -1,9 +1,9 @@
 import {
   showGreetings, showAnswerUser, showGreetingsUser, showRoundQuestion,
+  showCorrectAnswer, showWrongAnswer, showCongratulationsGame,
   getNameUser, getRandomNum, getCalculationGcd,
-  correctAnswer, exit,
-  wrongAnswer, wrongAnswer1, congratulationsGame,
-} from './index.js';
+  totalNumRounds, exit,
+} from '../index.js';
 
 const gcd = () => {
   console.log('brain-gcd\n');
@@ -11,21 +11,21 @@ const gcd = () => {
   const nameUser = getNameUser();
   showGreetingsUser(nameUser);
   console.log('Find the greatest common divisor of given numbers.');
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 1; i <= totalNumRounds; i += 1) {
     const numA = getRandomNum();
     const numB = getRandomNum();
     const operationRound = ' ';
     showRoundQuestion(numA, operationRound, numB);
     const answerUser = +showAnswerUser();
-    const gcdResult = getCalculationGcd(numA, numB);
-    if (gcdResult === answerUser) {
-      console.log(correctAnswer);
+    const expectedResponse = getCalculationGcd(numA, numB);
+    if (expectedResponse === answerUser) {
+      showCorrectAnswer();
     } else {
-      console.log(`${wrongAnswer}${gcdResult}\n${wrongAnswer1}${nameUser}`);
+      showWrongAnswer(nameUser, answerUser, expectedResponse);
       return exit;
     }
   }
-  console.log(`${congratulationsGame},${' '}${nameUser}!`);
+  showCongratulationsGame(nameUser);
   return exit;
 };
 

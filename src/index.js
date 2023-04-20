@@ -20,9 +20,37 @@ export const showRoundQuestion = (numA, operationRound, numB) => {
   }
 };
 
+export const showRoundQuestionCalc = (numA, numB, randOperation) => {
+  if (randOperation === '+') {
+    console.log(`${'Question: '}${numA} + ${numB}`);
+  }
+  if (randOperation === '-') {
+    console.log(`${'Question: '}${numA} - ${numB}`);
+  }
+  if (randOperation === '*') {
+    console.log(`${'Question: '}${numA} * ${numB}`);
+  }
+};
+
 export const showAnswerUser = () => {
   const answerUser = question('Your answer: ');
   return answerUser;
+};
+
+export const showCorrectAnswer = () => {
+  console.log('Correct!');
+};
+
+export const showWrongAnswer = (nameUser, answerUser, expectedResponse) => {
+  console.log(`${answerUser} ${'is wrong answer ;(. Correct answer was '}${expectedResponse}\n${'Let\'s try again, '}${nameUser}!`);
+};
+
+export const showWrongAnswerCalc = (nameUser, answerUser, sum, sub, multip) => {
+  console.log(`${answerUser} ${'is wrong answer ;(. Correct answer was '}${sum || sub || multip}\n${'Let\'s try again, '}${nameUser}!`);
+};
+
+export const showCongratulationsGame = (nameUser) => {
+  console.log(`Congratulations, ${nameUser}!`);
 };
 
 // function get;
@@ -41,7 +69,7 @@ export const getRandomNum = () => {
   return numRandom;
 };
 
-export const getAnswer = (numRandom) => {
+export const getExpectedAnswer = (numRandom) => {
   const evenOrOdd = numRandom % 2 === 0;
   const expectedResponse = evenOrOdd ? 'yes' : 'no';
   return expectedResponse;
@@ -50,18 +78,6 @@ export const getAnswer = (numRandom) => {
 export const getRandomOperation = (arrayRandOperation = ['+', '-', '*']) => {
   const randOperation = arrayRandOperation[Math.floor(Math.random() * arrayRandOperation.length)];
   return randOperation;
-};
-
-export const getAnswerCalc = (numA, numB, randOperation) => {
-  if (randOperation === '+') {
-    console.log(`${'Question: '}${numA} + ${numB}`);
-  }
-  if (randOperation === '-') {
-    console.log(`${'Question: '}${numA} - ${numB}`);
-  }
-  if (randOperation === '*') {
-    console.log(`${'Question: '}${numA} * ${numB}`);
-  }
 };
 
 export const getOperationAddition = (numA, numB, randOperation) => {
@@ -115,12 +131,6 @@ export const getRandomItemArray = (arrayProgression) => {
 
 // list const
 
+export const totalNumRounds = 3;
+
 export const exit = 'exit';
-
-export const wrongAnswer = 'is wrong answer ;(. Correct answer was ';
-
-export const wrongAnswer1 = 'Let\'s try again, ';
-
-export const correctAnswer = 'Correct!';
-
-export const congratulationsGame = 'Congratulations';
