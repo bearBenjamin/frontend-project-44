@@ -17,7 +17,7 @@ const progression = () => {
     const itemTwoPoint = getRandomItemArray(arrayProgression);
     const expectedResponse = arrayProgression[itemTwoPoint];
     arrayProgression[itemTwoPoint] = '..';
-    const strProgression = arrayProgression.join('  ');
+    const strProgression = arrayProgression.join(' ');
     showRoundQuestion(strProgression);
     const answerUser = +showAnswerUser();
     if (answerUser === expectedResponse) {
