@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import arbitaryNumber from '../src/file_parity_check.js';
+import arbitaryNumber from '../src/games/file_parity_check.js';
 
 arbitaryNumber();

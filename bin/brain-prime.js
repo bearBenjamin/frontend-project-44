@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import numPr from '../src/file_prime.js';
+import numPr from '../src/games/file_prime.js';
 
 numPr();
