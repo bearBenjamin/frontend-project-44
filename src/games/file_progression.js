@@ -10,7 +10,7 @@ const progression = () => {
   showGreetings();
   const nameUser = getNameUser();
   showGreetingsUser(nameUser);
-  console.log('What number is missing in the progrission?');
+  console.log('What number is missing in the progression?');
   for (let i = 1; i <= totalNumRounds; i += 1) {
     const numRandom = getRandomNum();
     const arrayProgression = getArrayProgressionRound(numRandom);

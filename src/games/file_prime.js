@@ -14,24 +14,22 @@ const numPr = () => {
     const numRandom = getRandomNum();
     showRoundQuestion(numRandom);
     const answerUser = showAnswerUser();
-    if (numRandom) {
-      let expectedResponse = numRandom === 1 ? 'no' : 'yes';
-      expectedResponse = numRandom === 2 || numRandom === 3 ? 'yes' : 'no';
-      const halfNumRandom = Math.floor(numRandom / 2);
-      for (let j = 2; j <= halfNumRandom; j += 1) {
-        if (numRandom % j === 0) {
-          expectedResponse = 'no';
-          break;
-        } else if (j === halfNumRandom) {
-          expectedResponse = 'yes';
-        }
+    let expectedResponse = numRandom === 1 ? 'no' : 'yes';
+    expectedResponse = numRandom === 2 || numRandom === 3 ? 'yes' : 'no';
+    const halfNumRandom = Math.floor(numRandom / 2);
+    for (let j = 2; j <= halfNumRandom; j += 1) {
+      if (numRandom % j === 0) {
+        expectedResponse = 'no';
+        break;
+      } else if (j === halfNumRandom) {
+        expectedResponse = 'yes';
       }
-      if (expectedResponse === answerUser) {
-        showCorrectAnswer();
-      } else {
-        showWrongAnswer(nameUser, answerUser, expectedResponse);
-        return exit;
-      }
+    }
+    if (expectedResponse === answerUser) {
+      showCorrectAnswer();
+    } else {
+      showWrongAnswer(nameUser, answerUser, expectedResponse);
+      return exit;
     }
   }
   showCongratulationsGame(nameUser);
