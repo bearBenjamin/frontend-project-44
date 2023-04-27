@@ -1,34 +1,26 @@
+import runEngine from '../index.js';
 import {
-  showGreetings, showAnswerUser, showGreetingsUser, showRoundQuestion,
-  showCorrectAnswer, showWrongAnswer, showCongratulationsGame,
-  getNameUser, getRandomNum, getArrayProgressionRound, getRandomItemArray,
-  totalNumRounds, exit,
-} from '../index.js';
+  getAnswerUser, showRoundQuestion,
+  getRandomNum, getArrayProgressionRound, getRandomItemArray,
+} from '../utils.js';
+
+const nameGame = 'brain-progression\n';
+const rules = 'What number is missing in the progression?';
+
+const generateRound = () => {
+  const numRandom = getRandomNum();
+  const arrayProgression = getArrayProgressionRound(numRandom);
+  const itemTwoPoint = getRandomItemArray(arrayProgression);
+  const expectResp = arrayProgression[itemTwoPoint];
+  arrayProgression[itemTwoPoint] = '..';
+  const strProgression = arrayProgression.join(' ');
+  showRoundQuestion(strProgression);
+  const answerUser = +getAnswerUser();
+  return [answerUser, expectResp];
+};
 
 const progression = () => {
-  console.log('brain-progression\n');
-  showGreetings();
-  const nameUser = getNameUser();
-  showGreetingsUser(nameUser);
-  console.log('What number is missing in the progression?');
-  for (let i = 1; i <= totalNumRounds; i += 1) {
-    const numRandom = getRandomNum();
-    const arrayProgression = getArrayProgressionRound(numRandom);
-    const itemTwoPoint = getRandomItemArray(arrayProgression);
-    const expectedResponse = arrayProgression[itemTwoPoint];
-    arrayProgression[itemTwoPoint] = '..';
-    const strProgression = arrayProgression.join(' ');
-    showRoundQuestion(strProgression);
-    const answerUser = +showAnswerUser();
-    if (answerUser === expectedResponse) {
-      showCorrectAnswer();
-    } else {
-      showWrongAnswer(nameUser, answerUser, expectedResponse);
-      return exit;
-    }
-  }
-  showCongratulationsGame(nameUser);
-  return exit;
+  runEngine(nameGame, rules, generateRound);
 };
 
 export default progression;

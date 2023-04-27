@@ -1,35 +1,25 @@
+import runEngine from '../index.js';
 import {
-  showGreetings, showGreetingsUser, showRoundQuestionCalc, showAnswerUser,
-  showCorrectAnswer, showWrongAnswerCalc, showCongratulationsGame,
-  getNameUser, getRandomNum, getRandomOperation,
-  totalNumRounds, exit,
-  getOperationAddition, getOperationSubstraction, getOperationMultiplication,
-} from '../index.js';
+  showRoundQuestionCalc, getAnswerUser,
+  getRandomNum, getRandomOperation,
+  getAdd, getSub, getMultip,
+} from '../utils.js';
+
+const nameGame = 'brain-calc\n';
+const rules = 'What is the result of the expression?';
+
+const generateRound = () => {
+  const A = getRandomNum();
+  const B = getRandomNum();
+  const randOper = getRandomOperation();
+  showRoundQuestionCalc(A, B, randOper);
+  const answerUser = +getAnswerUser();
+  const expectResp = getAdd(A, B, randOper) || getSub(A, B, randOper) || getMultip(A, B, randOper);
+  return [answerUser, expectResp];
+};
 
 const calculator = () => {
-  console.log('brain-calc\n');
-  showGreetings();
-  const nameUser = getNameUser();
-  showGreetingsUser(nameUser);
-  console.log('What is the result of the expression?');
-  for (let i = 1; i <= totalNumRounds; i += 1) {
-    const numA = getRandomNum();
-    const numB = getRandomNum();
-    const randOperation = getRandomOperation();
-    showRoundQuestionCalc(numA, numB, randOperation);
-    const answerUser = +showAnswerUser();
-    const sum = getOperationAddition(numA, numB, randOperation);
-    const sub = getOperationSubstraction(numA, numB, randOperation);
-    const multip = getOperationMultiplication(numA, numB, randOperation);
-    if ((answerUser === sum) || (answerUser === sub) || (answerUser === multip)) {
-      showCorrectAnswer();
-    } else {
-      showWrongAnswerCalc(nameUser, answerUser, sum, sub, multip);
-      return exit;
-    }
-  }
-  showCongratulationsGame(nameUser);
-  return exit;
+  runEngine(nameGame, rules, generateRound);
 };
 
 export default calculator;

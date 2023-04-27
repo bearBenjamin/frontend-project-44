@@ -43,3 +43,14 @@
 
 [![asciicast](https://asciinema.org/a/577962.svg)](https://asciinema.org/a/577962)
 
+**User's Manual**
+1. *Install Node.js. This can be done according to the [instructions](https://github.com/Hexlet/ru-instructions/blob/main/nodejs.md)*
+2. *Clone the repository to your computer. This can be done with the git clone command.*
+3. *Run the make install command to install the dependencies.*
+4. *Start the game you like. The game is launched with the commands:*
+	* *brain-even ("Parity check" game)*
+	* *brain-calc (game "Calculator")*
+	* *brain-gcd (game "Greates Common Divisor (GCD)")*
+	* *brain-progression (game "Arithmetic progression")*
+	* brain-prime (game "Is it a prime number?")
+
