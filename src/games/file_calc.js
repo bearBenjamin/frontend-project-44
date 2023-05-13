@@ -26,7 +26,7 @@ const generateRound = () => {
   const numA = getRandomNum(0, 100);
   const numB = getRandomNum(0, 100);
   const operator = getRandomOperator();
-  const questionRound = `${numA} ${operator} ${numB}`;
+  const questionRound = `${numA}' ' ${operator}' ' ${numB}`;
   const add = operator === '+' ? numA + numB : null;
   const sub = operator === '-' ? numA - numB : null;
   const multip = operator === '*' ? numA * numB : null;
