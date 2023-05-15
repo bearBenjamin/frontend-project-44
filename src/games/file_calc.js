@@ -36,7 +36,7 @@ const generateRound = () => {
   const numA = getRandomNum(0, 100);
   const numB = getRandomNum(0, 100);
   const operator = getRandomOperator();
-  const questionRound = `${numA}${operator}${numB}`;
+  const questionRound = `${'Question: '}${numA}${operator}${numB}`;
   const expectedAnswer = calculation(numA, numB, operator);
   return [questionRound, String(expectedAnswer)];
 };
