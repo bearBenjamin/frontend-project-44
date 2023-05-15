@@ -10,7 +10,7 @@ const runEngine = (rules, generateRound) => {
   console.log(rules);
   for (let i = 1; i <= roundsCount; i += 1) {
     const [questionRound, expectedAnswer] = generateRound();
-    console.log(`Questioun: ${questionRound}`);
+    console.log(`Question: ${questionRound}`);
     const answerUser = question('Your answer: ');
     if (expectedAnswer === answerUser) {
       console.log('Correct!');
