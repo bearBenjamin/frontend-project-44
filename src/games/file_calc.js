@@ -1,5 +1,5 @@
 import runEngine from '../index.js';
-import { getRandomNum } from '../utils.js';
+import getRandomNum from '../utils.js';
 
 // const nameGame = 'brain-calc\n';
 const rules = 'What is the result of the expression?';
@@ -22,15 +22,22 @@ const getRandomOperator = () => {
   return questionRound;
 }; */
 
+const calculation = (num1, num2, operator) => {
+  switch (operator) {
+    case '+': return num1 + num2;
+    case '-': return num1 - num2;
+    case '*': return num1 * num2;
+    default:
+      throw new Error(`Operator ${operator} - is incorrect!`);
+  }
+};
+
 const generateRound = () => {
   const numA = getRandomNum(0, 100);
   const numB = getRandomNum(0, 100);
   const operator = getRandomOperator();
-  const questionRound = `${numA}' ' ${operator}' ' ${numB}`;
-  const add = operator === '+' ? numA + numB : null;
-  const sub = operator === '-' ? numA - numB : null;
-  const multip = operator === '*' ? numA * numB : null;
-  const expectedAnswer = add || sub || multip;
+  const questionRound = `${numA}${operator}${numB}`;
+  const expectedAnswer = calculation(numA, numB, operator);
   return [questionRound, String(expectedAnswer)];
 };
 const calculator = () => {

@@ -1,19 +1,25 @@
 import runEngine from '../index.js';
-import { getRandomNum } from '../utils.js';
+import getRandomNum from '../utils.js';
 
-const nameGame = 'brain-even\n';
+const parityCheck = (numRandom) => {
+  const evenOrOdd = numRandom % 2 === 0;
+  const expectedAnswer = evenOrOdd ? 'yes' : 'no';
+  return expectedAnswer;
+};
+
+// const nameGame = 'brain-even\n';
 const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const generateRound = () => {
-  const numRandom = getRandomNum();
+  const numRandom = getRandomNum(0, 100);
+  console.log(numRandom);
   const questionRound = `${'Question: '}${numRandom}`;
-  const evenOrOdd = numRandom % 2 === 0;
-  const expectedAnswer = evenOrOdd ? 'yes' : 'no';
+  const expectedAnswer = parityCheck(numRandom);
   return [questionRound, expectedAnswer];
 };
 
 const arbitaryNumber = () => {
-  runEngine(nameGame, rules, generateRound);
+  runEngine(rules, generateRound);
 };
 
 export default arbitaryNumber;

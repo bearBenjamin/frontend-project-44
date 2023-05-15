@@ -1,10 +1,9 @@
 import { question } from 'readline-sync';
-import { exit } from './utils.js';
+// import { exit } from './utils.js';
 
 const roundsCount = 3;
 
-const runEngine = (nameGame, rules, generateRound) => {
-  console.log(nameGame);
+const runEngine = (rules, generateRound) => {
   console.log('Welcome to the Brain Games!');
   const userName = question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
@@ -17,11 +16,10 @@ const runEngine = (nameGame, rules, generateRound) => {
       console.log('Correct!');
     } else {
       console.log(`${answerUser} ${'is wrong answer ;(. Correct answer was '}${expectedAnswer}\n${'Let\'s try again, '}${userName}!`);
-      return exit;
+      return;
     }
   }
   console.log(`Congratulations, ${userName}!`);
-  return exit;
 };
 
 export default runEngine;
