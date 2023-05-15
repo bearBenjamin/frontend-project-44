@@ -12,8 +12,7 @@ const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const generateRound = () => {
   const numRandom = getRandomNum(0, 100);
-  console.log(numRandom);
-  const questionRound = `${'Question: '}${numRandom}`;
+  const questionRound = `${numRandom}`;
   const expectedAnswer = parityCheck(numRandom);
   return [questionRound, expectedAnswer];
 };
