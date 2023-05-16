@@ -1,5 +1,4 @@
 import { question } from 'readline-sync';
-// import { exit } from './utils.js';
 
 const roundsCount = 3;
 

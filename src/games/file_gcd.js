@@ -1,38 +1,25 @@
 import runEngine from '../index.js';
-import { getRandomNum } from '../utils.js';
+import getRandomNum from '../utils.js';
 
-const nameGame = 'brain-gcd\n';
 const rules = 'Find the greatest common divisor of given numbers.';
+
 const getCalculationGcd = (numA, numB) => {
-  let numOne = numA;
-  let numTwo = numB;
-  let gcdResult;
-  if (numOne === numTwo) {
-    gcdResult = numOne;
-  } else {
-    do {
-      if (numOne > numTwo) {
-        numOne -= numTwo;
-      } else {
-        numTwo -= numOne;
-      }
-    } while (numOne !== numTwo);
-    gcdResult = numOne;
+  if (numA === 0) {
+    return numB;
   }
-  return gcdResult;
+  return getCalculationGcd(numB % numA, numA);
 };
 
 const generateRound = () => {
-  const numA = getRandomNum();
-  const numB = getRandomNum();
-  const questionRound = `${'Question: '}${numA}${' '}${numB}`;
-  const expectedAnswer = getCalculationGcd(numA, numB);
-  console.log(expectedAnswer);
-  return [questionRound, String(expectedAnswer)];
+  const numA = getRandomNum(0, 100);
+  const numB = getRandomNum(0, 100);
+  const questionRound = `${numA}${' '}${numB}`;
+  const expectedAnswer = String(getCalculationGcd(numA, numB));
+  return [questionRound, expectedAnswer];
 };
 
 const gcd = () => {
-  runEngine(nameGame, rules, generateRound);
+  runEngine(rules, generateRound);
 };
 
 export default gcd;
