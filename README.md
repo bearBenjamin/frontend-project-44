@@ -55,4 +55,4 @@
 	* *brain-prime (game "Is it a prime number?")*
 
 
-**Educational project within the framework of teaching the profession "Front-end developer" at the Hexlet programming school** :U+1F468 U+200D U+1F393:
+**Educational project within the framework of teaching the profession "Front-end developer" at the Hexlet programming school**
