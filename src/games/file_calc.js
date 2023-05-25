@@ -22,7 +22,7 @@ const generateRound = () => {
   const numA = getRandomNum(0, 100);
   const numB = getRandomNum(0, 100);
   const operator = getRandomOperator();
-  const questionRound = `${numA}${' '}${operator}${' '}${numB}`;
+  const questionRound = `${numA} ${operator} ${numB}`;
   const expectedAnswer = String(calculation(numA, numB, operator));
   return [questionRound, expectedAnswer];
 };

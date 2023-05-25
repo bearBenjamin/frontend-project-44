@@ -13,7 +13,7 @@ const getCalculationGcd = (numA, numB) => {
 const generateRound = () => {
   const numA = getRandomNum(0, 100);
   const numB = getRandomNum(0, 100);
-  const questionRound = `${numA}${' '}${numB}`;
+  const questionRound = `${numA} ${numB}`;
   const expectedAnswer = String(getCalculationGcd(numA, numB));
   return [questionRound, expectedAnswer];
 };
